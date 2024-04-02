@@ -29,13 +29,13 @@ QUERY = "http://localhost:8080/query?id={}"
 N = 500
 
 
-def getDataPoint(quote):
+def getDataPoint(quote) -> tuple[str, float, float, float]:
     """ Produce all the needed values to generate a datapoint """
     """ ------------- Update this function ------------- """
     stock = quote['stock']
     bid_price = float(quote['top_bid']['price'])
     ask_price = float(quote['top_ask']['price'])
-    price = (bid_price + ask_price / 2)  # price is always same as bid # price of stock = avg bid + ask
+    price = (bid_price + ask_price) / 2  # price is always same as bid # price of stock = avg bid + ask
     return stock, bid_price, ask_price, price
 
 
